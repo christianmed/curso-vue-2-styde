@@ -10,11 +10,92 @@
 </head>
 <body>
 
+  <div class="hero is-primary">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          Lorem ipsum.
+        </h1>
+        <h2 class="subtitle">
+          Consectetur adipisicing elit. Aliquam, commodi.
+        </h2>
+      </div>
+    </div>
+  </div>
 
+  <div id="app">
+
+    <div class="section">
+      <div class="container">
+
+        <div class="content">
+          <div class="field">
+            <p class="control">
+              <input
+                v-model="newtask"
+                v-on:keyup.enter="addNewTask()"
+                type="text"
+                class="input"
+                placeholder="Qué te falta por hacer?"
+              >
+            </p>
+          </div>
+
+          <p class="control">
+            <button
+              v-on:click="addNewTask()"
+              class="button is-primary btn-add-task"
+            >
+              Agregar tarea
+            </button>
+          </p>
+        </div>
+
+        <div class="content">
+          <ul>
+            <li v-for="task in taskList">
+              {{ task }}
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <p>
+          Christian Medina | &copy; 2017
+        </p>
+      </div>
+    </div>
+  </footer>
 
   <script src="https://unpkg.com/vue@2.3.3"></script>
 
+  <script>
 
+    const vm = new Vue({
+      el: '#app',
+      newtask: '',
+      data:{
+        taskList: [
+          'Tarea 1',
+          'Tarea 2',
+          'Tarea 3'
+        ]
+      },
+      methods: {
+        addNewTask: function() {
+          this.taskList.push(this.newtask);
+          this.newtask = '';
+        }
+      }
+    });
+  </script>
 
 </body>
 </html>
