@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue | 06</title>
+  <link rel="stylesheet" href="css/bulma.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <div class="hero is-primary">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          Lorem ipsum.
+        </h1>
+        <h2 class="subtitle">
+          Consectetur adipisicing elit. Aliquam, commodi.
+        </h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="app">
+    <div class="container">
+      <button @click="show = !show" class="button is-primary">
+        Toggle
+      </button>
+      <transition name="fade">
+        <span v-if="show" class="text-msg">
+          Hora: {{ new Date().toLocaleTimeString() }}
+        </span>
+      </transition>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <p>
+          Christian Medina | &copy; 2017
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/vue@2.3.3"></script>
+
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        show: false
+      }
+    })
+  </script>
+
+</body>
+</html>

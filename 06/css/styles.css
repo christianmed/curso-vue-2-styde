@@ -1,0 +1,17 @@
+.text-msg {
+  margin: 0 3em;
+  line-height: 2.3em;
+}
+
+.footer {
+  border-top: 1px solid #ccc;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity .5s
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue | 04</title>
+  <link rel="stylesheet" 
+  <link rel="stylesheet" href="css/bulma.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <div class="hero is-primary">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          Lorem ipsum.
+        </h1>
+        <h2 class="subtitle">
+          Consectetur adipisicing elit. Aliquam, commodi.
+        </h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+
+    <div class="container form-container">
+
+      <div id="app">
+        <form class="form">
+
+          <div class="field">
+            <label for="name" class="label">Nombre completo</label>
+            <input v-model="name" type="text" class="input" id="name">
+          </div>
+
+          <article class="message is-primary">
+            <div class="message-header">
+              <p>Nombre al revés</p>
+            </div>
+            <div v-text="reversedname" class="message-body has-text-centered">
+            </div>
+          </article>
+
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <p>
+          Christian Medina | &copy; 2017
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/vue@2.3.3"></script>
+
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        name: ''
+      },
+      computed: {
+        reversedname: function() {
+          return this.name.split('').reverse().join('');
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
