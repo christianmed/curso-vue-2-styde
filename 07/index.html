@@ -32,7 +32,7 @@
           <div class="field">
             <p class="control">
               <input
-                v-model="newtask"
+                v-model="newTask"
                 v-on:keyup.enter="addNewTask()"
                 type="text"
                 class="input"
@@ -80,7 +80,7 @@
 
     const vm = new Vue({
       el: '#app',
-      newtask: '',
+      newTask: '',
       data:{
         taskList: [
           'Tarea 1',
@@ -90,8 +90,10 @@
       },
       methods: {
         addNewTask: function() {
-          this.taskList.push(this.newtask);
-          this.newtask = '';
+          if(this.newTask.length > 0) {
+            this.taskList.push(this.newTask);
+            this.newTask = '';
+          }
         }
       }
     });

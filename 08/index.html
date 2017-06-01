@@ -97,7 +97,7 @@
       },
       methods: {
         addNewTask: function() {
-          if(this.newTask !== '') {
+          if(this.newTask.length > 0) {
             this.taskList.push(this.newTask);
             this.newTask = '';
           }
