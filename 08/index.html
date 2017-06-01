@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue | 08</title>
+  <link rel="stylesheet" href="css/bulma.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <div class="hero is-primary">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          Lorem ipsum.
+        </h1>
+        <h2 class="subtitle">
+          Consectetur adipisicing elit. Aliquam, commodi.
+        </h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="app">
+    <div class="container">
+
+      <div class="content">
+        <div class="field">
+          <p class="control">
+            <input
+              v-model="newTask"
+              v-on:keyup.enter="addNewTask"
+              type="text"
+              class="input"
+              placeholder="Qué te falta por hacer?"
+            >
+          </p>
+        </div>
+
+        <div class="field">
+          <p class="control">
+            <button
+              v-on:click="addNewTask"
+              class="button is-primary"
+            >
+              Agregar tarea
+            </button>
+          </p>
+        </div>
+      </div>
+
+      <div class="content">
+        <ul>
+          <task-item
+            v-for="(task, index) in taskList" v-bind:key="index" v-bind:title="task" v-on:remove="taskList.splice(index, 1)"
+          ></task-item>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <p>
+          Christian Medina | &copy; 2017
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/vue@2.3.3"></script>
+
+  <script>
+    Vue.component('task-item', {
+      template: `
+        <li>
+          {{ title }} 
+          <button v-on:click="$emit('remove')">X</button>
+        </li>
+      `,
+      props: ['title']
+    });
+
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        newTask: '',
+        taskList: [
+          'tarea 1',
+          'tarea 2',
+          'tarea 3'
+        ]
+      },
+      methods: {
+        addNewTask: function() {
+          if(this.newTask !== '') {
+            this.taskList.push(this.newTask);
+            this.newTask = '';
+          }
+        }
+      }
+    })
+  </script>
+
+</body>
+</html>
