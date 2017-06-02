@@ -79,7 +79,7 @@
       template: `
         <li>
           {{ title }} 
-          <button v-on:click="$emit('remove')">X</button>
+          <button class="delete is-small" v-on:click="$emit('remove')"></button>
         </li>
       `,
       props: ['title']

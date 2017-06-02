@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <title>Vue | 09</title>
+  <!--Material icons-->
+  <link rel='stylesheet' href='http://fonts.googleapis.com/icon?family=Material+Icons'>
+  <!--Materialize css-->
+  <link rel='stylesheet' href='css/materialize.css'>
+  <!--personal styles-->
+  <link rel='stylesheet' href='css/styles.css'>
+</head>
+<body>
+  <header class="red lighten-1">
+    <div class="container">
+      <div class="row">
+        <div class="col s12">
+          <h2 class="white-text center">
+            Vue | Task List
+          </h2>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <div class="section" id="app">
+      <div class="container">
+        <div class="row">
+          <div class="col s6">
+            <h5>Agrega una tarea</h5>
+            <input
+              v-model="newTask"
+              v-on:keyup.enter="addTask"
+              type="text">
+          </div>
+          <div class="col s6">
+            <h5>Lista de tareas</h5>
+            <ul class="collection">
+              <task
+                v-for="(task, index) in taskList"
+                v-bind:key="index"
+                v-bind:task="task"
+                v-on:remove="removeTask(index)">
+              </task>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="page-footer red lighten-1">
+    <div class="footer-copyright">
+      <div class="container center">
+        <div>
+          Christian Medina | &copy; 2017
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!--Materialize Js files-->
+  <script src='https://code.jquery.com/jquery-2.1.1.min.js'></script>
+  <script src='js/materialize.js'></script>
+  <!--Vue Js files-->
+  <script src='https://unpkg.com/vue@2.3.3'></script>
+  <script src='js/v-app.js'></script>
+
+</body>
+</html>
