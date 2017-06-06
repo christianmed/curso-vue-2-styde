@@ -1,0 +1,20 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.collection-item,
+.close {
+  cursor: pointer;
+}
+
+.collection-item.completed {
+  text-decoration: line-through;
+  color: grey;
+  background-color: #eee;
+}

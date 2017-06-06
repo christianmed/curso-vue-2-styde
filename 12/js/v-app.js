@@ -1,60 +1,55 @@
 'use strict';
 
-Vue.filter('reverseText', text => text.split('').reverse().join(''));
 
 const vm = new Vue({
   el: 'main',
   data: {
-    min: 0,
-    search1: '',
-    search2: '',
+    min: 10,
+    title: '',
     movies: [
       {
-        name: 'Pelicula 1',
+        name: 'Titanic',
         year: 1990,
         average: 7
       },
       {
-        name: 'Pelicula 2',
+        name: 'John Wick',
         year: 2000,
         average: 3
       },
       {
-        name: 'Pelicula 3',
+        name: 'Amanecer',
         year: 2010,
         average: 9
       },
       {
-        name: 'Pelicula 4',
+        name: 'Qué pasó ayer?',
         year: 2005,
         average: 5
       },
       {
-        name: 'Pelicula 5',
+        name: 'Noche de Terror',
         year: 2012,
         average: 8
       },
       {
-        name: 'Pelicula 6',
+        name: 'La Niñera',
         year: 2015,
         average: 6
       },
       {
-        name: 'Pelicula 7',
+        name: 'El Exorcista',
         year: 2017,
         average: 10
       }
     ]
   },
   computed: {
-    averageFilter() {
+    averageMovieFilter() {
       return this.movies.filter(movie => movie.average >= this.min);
     },
-    searchMovie1() {
-      return this.movies.filter(movie => movie.name.includes(this.search1));
-    },
-    searchMovie2() {
-      return this.movies.filter(movie => movie.name.includes(this.search2));
+    titleMovieSearch() {
+      return this.movies.filter(movie => movie.name.toLowerCase().includes(this.title.toLowerCase()));
     }
   }
 });
