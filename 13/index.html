@@ -42,7 +42,7 @@
               <li
               v-bind:class="{completed: task.completed}"
               v-on:click="completeTask(task)"
-              v-for="task in tasks"
+              v-for="(task, index) in tasks"
               class="collection-item">
                 {{ task.title }}
                 <span class="secondary-content">
