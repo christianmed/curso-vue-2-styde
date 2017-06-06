@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <title>Vue | 14</title>
+  <!--Material icons-->
+  <link rel='stylesheet' href='http://fonts.googleapis.com/icon?family=Material+Icons'>
+  <!--Materialize css-->
+  <link rel='stylesheet' href='css/materialize.css'>
+  <!--Animate css-->
+  <link rel="stylesheet" href="https://unpkg.com/animate.css@3.5.1/animate.min.css">
+  <!--personal styles-->
+  <link rel='stylesheet' href='css/styles.css'>
+
+</head>
+
+<body>
+
+  <header class="red lighten-1">
+    <div class="container">
+      <div class="row">
+        <div class="col s12">
+          <h2 class="white-text center">Vue | Transitions</h2>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="app">
+
+    <div class="section">
+      <div class="container center">
+        <div class="row">
+          <div class="col s12">
+            <a
+            v-on:click="show = !show"
+            href="#"
+            class="btn waves-effect waves-light red lighten-1">Mostrar / Ocultar</a>
+            <!--Transición-->
+            <transition name="effect1">
+              <h4
+              v-show="show">
+                <!--{{ message.transition}}-->
+              </h4>
+            </transition>
+            <!--Animación-->
+            <transition name="effect2">
+              <h4
+              v-show="show">
+                {{ message.animation}}
+              </h4>
+            </transition>
+            <!--Animate.css-->
+            <transition
+            name="effect2"
+            enter-active-class="animated bounceInDown"
+            leave-active-class="animated bounceOutUp">
+              <h4
+              v-show="show">
+                <!--{{ message.customAnimations}}-->
+              </h4>
+            </transition>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="page-footer red">
+    <div class="footer-copyright">
+      <div class="container center">
+        <div>Christian Medina | &copy; 2017</div>
+      </div>
+    </div>
+  </footer>
+
+  <!--Materialize Js files-->
+  <script src='https://code.jquery.com/jquery-2.1.1.min.js'></script>
+  <script src='js/materialize.js'></script>
+  <!--Vue Js files-->
+  <script src='https://unpkg.com/vue@2.3.3'></script>
+  <script src='js/v-app.js'></script>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+/*Transiciones*/
+.effect1-enter-active,
+.effect1-leave-active {
+  transition: all .5s;
+}
+.effect1-enter,
+.effect1-leave-to {
+  opacity: 0;
+}
+
+/*Animaciones*/
+.effect2-enter-active {
+  animation: bounce-in .5s;
+}
+.effect2-leave-active {
+  animation: bounce-in .5s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
