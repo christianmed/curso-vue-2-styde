@@ -30,11 +30,7 @@
   <main id="app">
 
     <div class="section">
-      <div class="container">
-        <div class="row">
-          <app></app>
-        </div>
-      </div>
+      <app></app>
     </div>
 
   </main>
@@ -46,6 +42,51 @@
       </div>
     </div>
   </footer>
+
+  <template id="app-template">
+    <div class="container">
+      <div class="row center">
+        <div class="col s12">
+          <button v-on:click="elegirGanador" class="btn">
+            Elegir Ganador
+          </button>
+        </div>
+      </div>
+      <div class="row center">
+        <div class="col s6">
+          <ul class="collection with-header">
+            <li class="collection-header">
+              <h4>Participantes</h4>
+            </li>
+            <li v-for="persona in personas" class="collection-item">
+              <figure>
+                <img v-bind:src="persona.avatar" class="circle">
+                <figcaption>
+                  {{ persona.first_name }} {{ persona.last_name }}
+                </figcaption>
+              </figure>
+            </li>
+          </ul>
+        </div>
+
+        <div v-if="ganador" class="col s6">
+          <ul class="collection with-header">
+            <li class="collection-header">
+              <h4>Ganador</h4>
+            </li>
+            <li class="collection-item">
+              <figure>
+                <img v-bind:src="ganador.avatar" class="circle">
+                <figcaption>
+                  {{ ganador.first_name }} {{ ganador.last_name }}
+                </figcaption>
+              </figure>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </template>
 
   <!--Materialize Js files-->
   <script src='https://code.jquery.com/jquery-2.1.1.min.js'></script>
