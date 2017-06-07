@@ -60,9 +60,9 @@
             </li>
             <li v-for="persona in personas" class="collection-item">
               <figure>
-                <img v-bind:src="persona.avatar" class="circle">
+                <img v-bind:src="persona.picture.medium" class="circle">
                 <figcaption>
-                  {{ persona.first_name }} {{ persona.last_name }}
+                  {{ persona.name.first }} {{ persona.name.last }}
                 </figcaption>
               </figure>
             </li>
@@ -76,9 +76,9 @@
             </li>
             <li class="collection-item">
               <figure>
-                <img v-bind:src="ganador.avatar" class="circle">
+                <img v-bind:src="ganador.picture.medium" class="circle">
                 <figcaption>
-                  {{ ganador.first_name }} {{ ganador.last_name }}
+                  {{ ganador.name.first }} {{ ganador.name.last }}
                 </figcaption>
               </figure>
             </li>

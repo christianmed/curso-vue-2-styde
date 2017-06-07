@@ -3,8 +3,8 @@
 Vue.component('app', {
   template: '#app-template',
   mounted() {
-    axios.get('https://reqres.in/api/users?per_page=5')
-      .then(response => this.personas = response.data.data);
+    axios.get('https://randomuser.me/api/?results=10&gender=male&name=us&inc=name,picture')
+      .then(response => this.personas = response.data.results);
   },
   data() {
     return {
