@@ -20,23 +20,15 @@
 <body>
 
   <main id="app">
-
+    <!--Header Vue Component-->
     <my-header></my-header>
 
     <section class="section">
-      <div class="container">
-        <div class="content has-text-centered">
-          <h3 class="subtitle is-3">Participantes</h3>
-        </div>
-        <div class="content has-text-centered">
-          <a class="button is-primary">Elegir ganador</a>
-        </div>
 
+        <!--Users Cards Vue Component-->
         <users-cards></users-cards>
-        
-      </div>
-    </section>
 
+    </section>
   </main>
 
   <!-- HEADER TEMPLATE-->
@@ -53,30 +45,38 @@
 
   <!-- USERS CARDS TEMPLATE-->
   <template id="users-cards-template">
-    <div class="columns is-multiline">
-      <div class="column is-12-mobile is-6-tablet is-4-desktop" v-for="user in users">
-        <div class="box">
-          <article class="media">
-            <div class="media-left">
-              <figure class="image is-64x64">
-                <img class="avatar" :src="user.picture.large">
-              </figure>
-            </div>
-            <div class="media-content">
-              <div class="content">
-                <p class="title is-4 capitalize"><strong>
-                  {{user.name.first}} {{user.name.last}}
-                </strong></p>
-                <p class="subtitle is-6">{{user.email}}</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, dicta.</p>
+    <div class="container">
+      <div class="content has-text-centered">
+        <h3 class="subtitle is-3">Participantes</h3>
+      </div>
+      <div class="content has-text-centered">
+        <a class="button is-primary">Elegir ganador</a>
+      </div>
+      <div class="columns is-multiline">
+        <div class="column is-12-mobile is-6-tablet is-4-desktop" v-for="user in users">
+          <div class="box">
+            <article class="media">
+              <div class="media-left">
+                <figure class="image is-64x64">
+                  <img class="avatar" :src="user.picture.large">
+                </figure>
               </div>
-              <div class="content">
-                <small>
-                  <a>@bulmaio</a> <a>#css</a> <a>#responsive</a>
-                </small>
+              <div class="media-content">
+                <div class="content">
+                  <p class="title is-4 capitalize"><strong>
+                    {{user.name.first}} {{user.name.last}}
+                  </strong></p>
+                  <p class="subtitle is-6">{{user.email}}</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, dicta.</p>
+                </div>
+                <div class="content">
+                  <small>
+                    <a>@bulmaio</a> <a>#css</a> <a>#responsive</a>
+                  </small>
+                </div>
               </div>
-            </div>
-          </article>
+            </article>
+          </div>
         </div>
       </div>
     </div>
