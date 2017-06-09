@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <title>Vue | 19</title>
+  <!--Roboto Font-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+  <!--Font Awesome-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!--Bulma css-->
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.css'>
+  <!--personal styles-->
+  <link rel='stylesheet' href='css/styles.css'>
+
+</head>
+
+<body>
+
+  <main id="app">
+
+    <my-header></my-header>
+
+    <section class="section">
+      <div class="container">
+        <div class="content has-text-centered">
+          <h3 class="subtitle is-3">Participantes</h3>
+        </div>
+        <div class="content has-text-centered">
+          <a class="button is-primary">Elegir ganador</a>
+        </div>
+
+        <users-cards></users-cards>
+        
+      </div>
+    </section>
+
+  </main>
+
+  <!-- HEADER TEMPLATE-->
+  <template id="header-template">
+    <div class="hero is-primary">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title is-2">Curso Vue.js | Props</h1>
+          <h6 class="subtitle is-5">by Christian Medina</h6>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <!-- USERS CARDS TEMPLATE-->
+  <template id="users-cards-template">
+    <div class="columns is-multiline">
+      <div class="column is-12-mobile is-6-tablet is-4-desktop" v-for="user in users">
+        <div class="box">
+          <article class="media">
+            <div class="media-left">
+              <figure class="image is-64x64">
+                <img class="avatar" :src="user.picture.large">
+              </figure>
+            </div>
+            <div class="media-content">
+              <div class="content">
+                <p class="title is-4 capitalize"><strong>
+                  {{user.name.first}} {{user.name.last}}
+                </strong></p>
+                <p class="subtitle is-6">{{user.email}}</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, dicta.</p>
+              </div>
+              <div class="content">
+                <small>
+                  <a>@bulmaio</a> <a>#css</a> <a>#responsive</a>
+                </small>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <!--Vue Js files-->
+  <script src='https://unpkg.com/vue@2.3.3'></script>
+  <!--Axios Js file-->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <!--App Js file-->
+  <script src='js/v-app.js'></script>
+
+</body>
+</html>
