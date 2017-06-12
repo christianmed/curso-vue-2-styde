@@ -47,12 +47,41 @@
   <template id="users-cards-template">
     <div class="container">
       <div class="content has-text-centered">
-        <h3 class="subtitle is-3">Participantes</h3>
+        <h3 class="subtitle is-3">{{titulo}}</h3>
       </div>
       <div class="content has-text-centered">
-        <a class="button is-primary">Elegir ganador</a>
+        <a @click="elegirGanador" v-show="!ganador" class="button is-primary">Elegir ganador</a>
       </div>
-      <div class="columns is-multiline">
+
+      <div v-if="ganador" class="columns is-desktop is-tablet">
+        <div class="column is-6-desktop is-6-tablet is-offset-3">
+          <div class="box">
+            <article class="media">
+              <div class="media-left">
+                <figure class="image is-64x64">
+                  <img class="avatar" :src="ganador.picture.large">
+                </figure>
+              </div>
+              <div class="media-content">
+                <div class="content">
+                  <p class="title is-4 capitalize"><strong>
+                    {{ganador.name.first}} {{ganador.name.last}}
+                  </strong></p>
+                  <p class="subtitle is-6">{{ganador.email}}</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, dicta.</p>
+                </div>
+                <div class="content">
+                  <small>
+                    <a>@bulmaio</a> <a>#css</a> <a>#responsive</a>
+                  </small>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <div v-else class="columns is-multiline">
         <div class="column is-12-mobile is-6-tablet is-4-desktop" v-for="user in users">
           <div class="box">
             <article class="media">

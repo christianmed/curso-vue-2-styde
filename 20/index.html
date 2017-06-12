@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang='es'>
+
+<head>
+
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <title>Vue | 20</title>
+  <!--Roboto Font-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+  <!--Font Awesome-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!--Bulma css-->
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.css'>
+  <!--personal styles-->
+  <link rel='stylesheet' href='css/styles.css'>
+
+</head>
+
+<body>
+
+  <main id="app">
+
+    <!-- App-Header Vue Component -->
+    <app-header></app-header>
+
+    <!-- App-usuarios Vue Component -->
+    <app-usuarios></app-usuarios>
+
+  </main>
+
+  <!-- APP-HEADER TEMPLATE -->
+  <template id="app-header-template">
+    <div class="hero is-primary">
+      <div class="hero-body">
+        <div class="container">
+          <h2 class="title is-2">Curso Vue.js | Props</h2>
+          <h5 class="subtitle is-5">by Christian Medina</h5>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <!-- APP-USUARIOS TEMPLATE -->
+  <template id="app-usuarios-template">
+
+    <div>
+      <div class="section">
+        <div class="container">
+          <div class="content has-text-centered">
+            <h2 class="title is-2">VueApp</h2>
+          </div>
+          <div class="field">
+            <p class="control">
+              <input v-model="busqueda" class="input is-primary" type="text" placeholder="Filtar usuarios">
+            </p>
+          </div>
+
+          <hr>
+
+          <div class="columns is-multiline is-mobile">
+            <!-- App-usuario Vue Component -->
+            <app-usuario :datos="usuario" v-for="(usuario, index) in filtrarUsuarios" :key="index"></app-usuario>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </template>
+
+  <!-- APP-USUARIO TEMPLATE -->
+  <template id="app-usuario-template">
+
+    <div class="column is-12-mobile is-6-tablet is-4-desktop">
+      <div class="box">
+        <article class="media">
+          <div class="media-left">
+            <figure class="image is-64x64">
+              <img :src="datos.foto">
+            </figure>
+          </div>
+          <div class="media-content">
+            <div class="content">
+              <p class="title is-5 capitalize">
+                <strong>{{ datos.nombre }}</strong>
+              </p>
+              <p class="subtitle is-6">
+                {{ datos.correo}}
+              </p>
+            </div>
+            <div class="content">
+              <small>
+                <a>@bulmaio</a>
+                <a>#css</a>
+                <a>#responsive</a>
+              </small>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+  </template>
+
+  <!--Vue Js files-->
+  <script src='https://unpkg.com/vue@2.3.3'></script>
+  <!--Axios Js file-->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <!--App Js file-->
+  <script src='js/v-app.js'></script>
+
+</body>
+</html>
