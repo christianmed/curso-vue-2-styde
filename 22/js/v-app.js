@@ -1,16 +1,16 @@
 Vue.component('app-header', {
-  template: '#app-header'
+  template: '#app-header-template'
 })
 
-Vue.component('messages', {
+Vue.component('app-message', {
+  template: '#app-message-template',
   props: ['type'],
-  template: '#app-messages',
   data() {
     return {
       messages: {
-        info: 'MENSAJE INFORMATIVO',
-        warning: 'MENSAJE DE ADVERTENCIA',
-        danger: 'MENSAJE DE ERROR'
+        info: 'Info lorem ipsum dolor sit amet, consectetur adipiscing elit lorem ipsum dolor sit amet, consectetur adipiscing elit ',
+        warning: 'Warning lorem ipsum dolor sit amet, consectetur adipiscing elit lorem ipsum dolor sit amet, consectetur adipiscing elit',
+        danger: 'Danger lorem ipsum dolor sit amet, consectetur adipiscing elit lorem ipsum dolor sit amet, consectetur adipiscing elit',
       }
     }
   }

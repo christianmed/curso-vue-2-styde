@@ -27,36 +27,29 @@
 
     <div class="section">
       <!--App messages Vue Component-->
-      <messages type="is-info">
+      <app-message type="is-info">
         <template slot="text" scope="props">
-          <p class="has-text-centered">
-            {{props.texto.danger}}
-          </p>
+           {{props.text.info}}
         </template>
-      </messages>
+      </app-message>
       <!--App messages Vue Component-->
-      <messages type="is-warning">
+      <app-message type="is-warning">
         <template slot="text" scope="props">
-          <p class="has-text-centered">
-            {{props.texto.danger}}
-          </p>
+           {{props.text.warning}}
         </template>
-      </messages>
+      </app-message>
       <!--App messages Vue Component-->
-      <messages type="is-danger">
+      <app-message type="is-danger">
         <template slot="text" scope="props">
-          <p class="has-text-centered">
-            {{props.texto.danger}}
-          </p>
+           {{props.text.danger}}
         </template>
-      </messages>
-
+      </app-message>
     </div>
 
   </main>
 
   <!--APP-HEADER-TEMPLATE-->
-  <template id="app-header">
+  <template id="app-header-template">
     <div class="hero is-primary">
       <div class="hero-body">
         <div class="container">
@@ -67,13 +60,13 @@
     </div>
   </template>
 
-  <!--APP-MESSAGES-TEMPLATE-->
-  <template id="app-messages">
+  <!--APP-MESSAGE-TEMPLATE-->
+  <template id="app-message-template">
     <div class="content">
       <div class="container">
         <div class="notification" :class="type">
           <button class="delete"></button>
-          <slot name="text" :texto="messages">
+          <slot name="text" :text="messages">
             Mensaje predeterminado
           </slot>
         </div>
