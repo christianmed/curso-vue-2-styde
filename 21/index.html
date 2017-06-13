@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang='es'>
+
+<head>
+
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <title>Vue | 21</title>
+  <!--Roboto Font-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+  <!--Font Awesome-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!--Bulma css-->
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.css'>
+  <!--personal styles-->
+  <link rel='stylesheet' href='css/styles.css'>
+
+</head>
+
+<body>
+
+  <main id="app">
+
+    <!--App Header Vue Component-->
+    <app-header></app-header>
+
+    <div class="section">
+      <!--Messages Vue Component-->
+      <messages type="is-info">
+        <template slot="text">
+          {{messages.info}}
+        </template>
+      </messages>
+      <messages type="is-warning">
+        <template slot="text">
+          {{messages.warning}}
+        </template>
+      </messages>
+      <messages type="is-danger">
+        <template slot="text">
+          {{messages.danger}}
+        </template>
+      </messages>
+    </div>
+
+  </main>
+
+  <template id="app-header">
+    <div class="hero is-primary">
+      <div class="hero-body">
+        <div class="container">
+          <h2 class="title is-2">Curso Vue.js | Slots</h2>
+          <h5 class="subtitle is-5">by Christian Medina</h5>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <template id="app-messages">
+    <div class="content">
+      <div class="container">
+        <div class="notification" :class="type">
+          <button class="delete"></button>
+          <slot name="text">
+            Mensaje predeterminado
+          </slot>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <!--Vue Js files-->
+  <script src='https://unpkg.com/vue@2.3.3'></script>
+  <!--Axios Js file-->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <!--App Js file-->
+  <script src='js/v-app.js'></script>
+
+</body>
+
+</html>

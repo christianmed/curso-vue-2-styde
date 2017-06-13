@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang='es'>
+
+<head>
+
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <title>Vue | 22</title>
+  <!--Roboto Font-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+  <!--Font Awesome-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!--Bulma css-->
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.css'>
+  <!--personal styles-->
+  <link rel='stylesheet' href='css/styles.css'>
+
+</head>
+
+<body>
+
+  <main id="app">
+
+    <!--App Header Vue Component-->
+    <app-header></app-header>
+
+    <div class="section">
+      <!--App messages Vue Component-->
+      <messages type="is-info">
+        <template slot="text" scope="props">
+          <p class="has-text-centered">
+            {{props.texto.danger}}
+          </p>
+        </template>
+      </messages>
+      <!--App messages Vue Component-->
+      <messages type="is-warning">
+        <template slot="text" scope="props">
+          <p class="has-text-centered">
+            {{props.texto.danger}}
+          </p>
+        </template>
+      </messages>
+      <!--App messages Vue Component-->
+      <messages type="is-danger">
+        <template slot="text" scope="props">
+          <p class="has-text-centered">
+            {{props.texto.danger}}
+          </p>
+        </template>
+      </messages>
+
+    </div>
+
+  </main>
+
+  <!--APP-HEADER-TEMPLATE-->
+  <template id="app-header">
+    <div class="hero is-primary">
+      <div class="hero-body">
+        <div class="container">
+          <h2 class="title is-2">Curso Vue.js | Slots</h2>
+          <h5 class="subtitle is-5">by Christian Medina</h5>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <!--APP-MESSAGES-TEMPLATE-->
+  <template id="app-messages">
+    <div class="content">
+      <div class="container">
+        <div class="notification" :class="type">
+          <button class="delete"></button>
+          <slot name="text" :texto="messages">
+            Mensaje predeterminado
+          </slot>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <!--Vue Js files-->
+  <script src='https://unpkg.com/vue@2.3.3'></script>
+  <!--Axios Js file-->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <!--App Js file-->
+  <script src='js/v-app.js'></script>
+
+</body>
+
+</html>
