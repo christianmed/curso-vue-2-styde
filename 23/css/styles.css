@@ -1,0 +1,13 @@
+.title {
+  color: #555;
+}
+
+form {
+  margin-top: 2em;
+}
+
+.btn.button {
+  display: block;
+  margin: 0 auto 0 auto;
+  width: 100%;
+}

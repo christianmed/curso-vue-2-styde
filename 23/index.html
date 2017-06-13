@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang='es'>
+
+<head>
+
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <title>Vue | 23</title>
+  <!--Roboto Font-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+  <!--Font Awesome-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!--Bulma css-->
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.css'>
+  <!--personal styles-->
+  <link rel='stylesheet' href='css/styles.css'>
+
+</head>
+
+<body>
+
+  <main id="app">
+
+    <div class="hero is-primary">
+      <!--Hero content-->
+      <div class="hero-body">
+        <div class="container">
+          <h2 class="title is-2">Curso Vue.js | Dynamic Components</h2>
+          <h5 class="subtitle is-5">by Christian Medina</h5>
+        </div>
+      </div>
+      <!--Hero footer-->
+      <div class="hero-foot">
+        <nav class="tabs is-boxed is-centered">
+          <div class="container">
+            <ul>
+              <li @click="currentView = 'home'" class="is-active">
+                <a>Home</a>
+              </li>
+              <li @click.stop="currentView = 'about'">
+                <a>About</a>
+              </li>
+              <li @click.stop="currentView = 'works'">
+                <a>Works</a>
+              </li>
+              <li @click.stop="currentView = 'contact'">
+                <a>Contact</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <component :is="currentView"></component>
+
+    <div class="section">
+      <div class="container">
+        <pre>
+          {{$data}}
+        </pre>
+      </div>
+    </div>
+
+  </main>
+
+  <template id="home-template">
+    <div class="hero">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <h2 class="title is-2">Home</h2>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <template id="about-template">
+    <div class="hero">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <h2 class="title is-2 is-spaced">About</h2>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <template id="works-template">
+    <div class="hero">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <h2 class="title is-2 is-spaced">Works</h2>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <template id="contact-template">
+    <div class="hero">
+      <div class="hero-body">
+        <div class="container">
+          <div class="columns">
+            <div class="column">
+              <h2 class="title is-spaced">
+                <strong>Contact Me</strong>
+              </h2>
+              <p>
+                Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum
+                integer. Integer eu ante ornare amet commetus.
+              </p>
+              <form>
+                <div class="field">
+                  <p class="control">
+                    <input type="text" class="input" placeholder="Name">
+                  </p>
+                </div>
+                <div class="field">
+                  <p class="control">
+                    <input type="text" class="input" placeholder="Email">
+                  </p>
+                </div>
+                <div class="field">
+                  <p class="control">
+                    <input type="text" class="input" placeholder="Subject">
+                  </p>
+                </div>
+                <div class="field">
+                  <p class="control">
+                    <textarea class="textarea" placeholder="Textarea"></textarea>
+                  </p>
+                </div>
+                <div class="field is-grouped">
+                  <p class="control">
+                    <button class="button is-primary is-medium btn">Submit</button>
+                  </p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <!--Vue Js files-->
+  <script src='https://unpkg.com/vue@2.3.3'></script>
+  <!--Axios Js file-->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <!--App Js file-->
+  <script src='js/v-app.js'></script>
+
+</body>
+
+</html>
